@@ -12,12 +12,14 @@ type FormProps = {
   dispatch: Dispatch<ActivityActions>;
 };
 
+const initialState = {
+  category: 1,
+  name: "",
+  calories: 0,
+};
+
 export default function Form({ dispatch }: FormProps) {
-  const [activity, setActivity] = useState<Activity>({
-    category: 1,
-    name: "",
-    calories: 0,
-  });
+  const [activity, setActivity] = useState<Activity>(initialState);
 
   const handleChange = (
     e:
@@ -46,6 +48,8 @@ export default function Form({ dispatch }: FormProps) {
         newActivity: activity,
       },
     });
+
+    setActivity(initialState);
   };
 
   return (
