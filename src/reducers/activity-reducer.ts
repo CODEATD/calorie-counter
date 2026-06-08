@@ -2,7 +2,7 @@ import type { Activity } from "../types";
 
 export type ActivityActions =
     { type: 'save-activity', payload: { newActivity: Activity } } |
-    { type: 'set-activeId', payload: { id: Activity['id'] } } 
+    { type: 'set-activeId', payload: { id: Activity['id'] } }
 export type ActivityState = {
     activities: Activity[];
     activeId: Activity['id'];
@@ -19,16 +19,26 @@ export const activityReducer = (
 ) => {
 
     if (action.type === 'save-activity') {
-        // Lógica para manejar actualizar el state de activities
 
+        let updatedActivities: Activity[] = [];
+
+        if (state.activeId) {
+            updatedActivities = state.activities.map(activity => activity.id === state.activeId ? action.payload.newActivity : activity);
+
+        } else {
+            updatedActivities = [...state.activities, action.payload.newActivity];
+        }
+
+        // Lógica para manejar actualizar el state de activities
 
         return {
             ...state,
-            activities: [...state.activities, action.payload.newActivity]
+            activities: updatedActivities,
+            activeId: '',
         }
     }
 
-    if(action.type === 'set-activeId') {
+    if (action.type === 'set-activeId') {
         // Lógica para manejar actualizar el state de activeId
 
         return {
