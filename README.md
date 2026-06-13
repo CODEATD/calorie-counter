@@ -1,75 +1,217 @@
-# React + TypeScript + Vite
+# 🍎 Calorie Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación desarrollada con React, TypeScript y useReducer para registrar alimentos consumidos y ejercicios realizados, permitiendo llevar un control diario de calorías consumidas, quemadas y el balance total.
 
-Currently, two official plugins are available:
+## 🚀 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 Producción: https://contasor-caloria-reducer.netlify.app/
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📋 Descripción
 
-Note: This will impact Vite dev & build performances.
+Este proyecto permite registrar actividades relacionadas con alimentación y ejercicio físico.
 
-## Expanding the ESLint configuration
+Cada actividad almacena:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Nombre de la actividad
+* Categoría (Comida o Ejercicio)
+* Cantidad de calorías
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+La aplicación calcula automáticamente:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Calorías consumidas
+* Calorías quemadas
+* Diferencia total de calorías
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Además, los datos permanecen almacenados gracias a LocalStorage.
+
+---
+
+## ✨ Características
+
+* Agregar comidas y ejercicios.
+* Editar actividades existentes.
+* Eliminar actividades individuales.
+* Reiniciar toda la aplicación.
+* Persistencia de datos mediante LocalStorage.
+* Validación de formularios.
+* Estadísticas en tiempo real.
+* Tipado completo con TypeScript.
+* Manejo de estado con useReducer.
+* Diseño responsive con Tailwind CSS.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* Heroicons
+* useReducer
+* useMemo
+* useEffect
+* LocalStorage API
+
+---
+
+## 📦 Instalación
+
+Clona el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Ingresa al directorio:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd calorie-tracker
 ```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+o
+
+```bash
+npm i
+```
+
+---
+
+## ▶️ Ejecutar en desarrollo
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 🏗️ Generar Build de Producción
+
+```bash
+npm run build
+```
+
+Este comando:
+
+1. Compila TypeScript.
+2. Optimiza los archivos para producción.
+3. Genera la carpeta:
+
+```text
+dist/
+```
+
+Lista para ser desplegada en cualquier hosting estático.
+
+---
+
+## 👀 Vista previa del Build
+
+```bash
+npm run preview
+```
+
+Permite ejecutar localmente la versión de producción generada por Vite.
+
+---
+
+## 📂 Estructura del Proyecto
+
+```text
+src/
+│
+├── components/
+│   ├── ActivityList.tsx
+│   ├── CalorieDisplay.tsx
+│   ├── CalorieTracker.tsx
+│   └── Form.tsx
+│
+├── reducers/
+│   └── activity-reducer.ts
+│
+├── types/
+│   └── index.ts
+│
+├── App.tsx
+└── main.tsx
+```
+
+---
+
+## 🧠 Conceptos Practicados
+
+Durante el desarrollo de este proyecto se trabajó con:
+
+* useState
+* useReducer
+* Dispatch y Actions
+* Reducers tipados con TypeScript
+* useMemo
+* useEffect
+* LocalStorage
+* Renderizado condicional
+* Componentes reutilizables
+* Formularios controlados
+* Validaciones
+* Manejo de listas
+* Tipado de Props
+
+---
+
+## 📸 Funcionalidades Principales
+
+### Registrar alimentos
+
+Permite sumar calorías consumidas.
+
+### Registrar ejercicios
+
+Permite contabilizar calorías quemadas.
+
+### Editar actividades
+
+Actualiza una actividad existente sin crear una nueva.
+
+### Eliminar actividades
+
+Permite borrar registros individuales.
+
+### Reiniciar aplicación
+
+Limpia completamente el estado y el LocalStorage.
+
+### Persistencia de datos
+
+La información permanece disponible incluso después de recargar la página.
+
+---
+
+## 🌐 Deployment
+
+La aplicación fue desplegada utilizando Netlify.
+
+Producción:
+
+https://contasor-caloria-reducer.netlify.app/
+
+---
+
+## 👨‍💻 Autor
+
+Adolfo Torres
+
+* GitHub: https://github.com/CODEATD

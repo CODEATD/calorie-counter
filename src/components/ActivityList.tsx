@@ -58,7 +58,7 @@ export default function ActivityList({
                 {categoryName(+activity.category)}
               </p>
               <p className="text-2xl font-bold pt-5">{activity.name}</p>
-              <p className="font-black text-4xl text-lime-500">
+              <p className="font-black sm:text-4xl text-3xl text-lime-500">
                 {activity.calories} {""}
                 <span>calorías</span>
               </p>

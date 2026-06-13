@@ -39,7 +39,7 @@ export default function CalorieTracker({ activities }: CalorieTrackerProps) {
         Resumen de calorías
       </h2>
 
-      <div className="flex flex-col items-center md:flex-row md:justify-between gap-5 mt-10">
+      <div className="flex flex-row items-center md:justify-between justify-center md:gap-5 gap-12 mt-10">
         <CalorieDisplay calories={caloriesConsumed} text="Consumidas" />
         <CalorieDisplay calories={caloriesBurned} text="Ejercicio" />
         <CalorieDisplay calories={netCalories} text="Diferencia" />
