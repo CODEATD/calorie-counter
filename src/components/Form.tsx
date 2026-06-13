@@ -29,11 +29,13 @@ export default function Form({ dispatch, state }: FormProps) {
   const [activity, setActivity] = useState<Activity>(initialState);
 
   useEffect(() => {
-    if(state.activeId) {
-      const selectedActivity = state.activities.filter( stateActivity => stateActivity.id === state.activeId )[0]
-      setActivity(selectedActivity)
+    if (state.activeId) {
+      const selectedActivity = state.activities.filter(
+        (stateActivity) => stateActivity.id === state.activeId,
+      )[0];
+      setActivity(selectedActivity);
     }
-  }, [state.activeId])
+  }, [state.activeId]);
 
   const handleChange = (
     e:

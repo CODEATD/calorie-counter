@@ -1,4 +1,4 @@
-import { useMemo, type Dispatch } from "react";
+import { useMemo, type Dispatch, type RefObject } from "react";
 import type { Activity } from "../types";
 import { categories } from "../data/categories";
 import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
@@ -7,17 +7,30 @@ import type { ActivityActions } from "../reducers/activity-reducer";
 type ActivityListProps = {
   activities: Activity[];
   dispatch: Dispatch<ActivityActions>;
+  formRef: RefObject<HTMLDivElement | null>;
 };
 
 export default function ActivityList({
   activities,
   dispatch,
+  formRef,
 }: ActivityListProps) {
   const categoryName = useMemo(
     () => (category: Activity["category"]) =>
       categories.map((cat) => (cat.id === category ? cat.name : "")),
     [activities],
   );
+
+  const handleEdit = (id: Activity["id"]) => {
+    dispatch({
+      type: "set-activeId",
+      payload: { id },
+    });
+
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+  };
 
   const isEmptyActivities = useMemo(
     () => activities.length === 0,
@@ -51,14 +64,7 @@ export default function ActivityList({
               </p>
             </div>
             <div className="flex gap-5 items-center">
-              <button
-                onClick={() =>
-                  dispatch({
-                    type: "set-activeId",
-                    payload: { id: activity.id },
-                  })
-                }
-              >
+              <button onClick={() => handleEdit(activity.id)}>
                 <PencilSquareIcon className="size-8 text-gray-800 cursor-pointer" />
               </button>
               <button
