@@ -2,6 +2,8 @@
 
 Aplicación desarrollada con React, TypeScript y useReducer para registrar alimentos consumidos y ejercicios realizados, permitiendo llevar un control diario de calorías consumidas, quemadas y el balance total.
 
+Proyecto de la **Sección 10** del curso **React - La Guía Completa: Hooks, Context, Redux, MERN +15 Apps** de Juan Pablo De la Torre (Código con Juan).
+
 ## 🚀 Demo
 
 🔗 Producción: https://contasor-caloria-reducer.netlify.app/
@@ -215,3 +217,7 @@ https://contasor-caloria-reducer.netlify.app/
 Adolfo Torres
 
 * GitHub: https://github.com/CODEATD
+
+---
+
+Hecho por [CODE ATD](https://codeatd.dev) siguiendo el curso de [Código con Juan](https://codigoconjuan.com/).
